@@ -1,0 +1,55 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargarvector(float a[], int tam);
+void mostrarvector (float a[], int tam);
+void burbuja (float a[], int tam);
+
+void main ()
+{
+	int n,tam;
+	float a[MAX];
+	do{
+		cout<<"introduzca cantidad de vectores";
+		cin>>n;
+	}while ((n<=0) || (n>MAX));
+	cargarvector(a,n);
+	burbuja(a,n);
+	mostrarvector (a,n);
+	getch();
+}
+
+void cargarvector(float a[], int tam)
+{
+	cout<<"cargar vector";
+	for(int i=0; i<tam; i++)
+	{
+		cin>>a[i];
+	}
+}
+
+void mostrarvector (float a[], int tam)
+{ 
+	for(int i=0;i<tam;i++)
+	{
+	cout<<a[i]<<endl;
+	}
+
+}
+
+void burbuja (float a[], int tam)
+
+{
+	float aux;
+	for(int i=0; i<tam-1; i++)
+	for(int j=i+1; j<tam; j++)
+       if(a[i]>a[j])
+	   { aux=a[i];
+	    a[i]=a[j];
+		a[j]=aux;
+	}
+}
